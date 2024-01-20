@@ -17,11 +17,11 @@ class myUser(AbstractUser):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        if self.user_role == "1":
+        if self.user_role == "2":
             Volunteer.objects.get_or_create(role=self)
-        elif self.user_role == "2":
-            Organization.objects.get_or_create(role=self)
         elif self.user_role == "3":
+            Organization.objects.get_or_create(role=self)
+        elif self.user_role == "1":
             Admin.objects.get_or_create(role=self)
 
 

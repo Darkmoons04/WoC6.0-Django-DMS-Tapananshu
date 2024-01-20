@@ -3,7 +3,7 @@
 {% block title %} Sign up!! {% endblock %}
 
 {% block content %}
-<form action="{% url 'dm:signup_vol' %}" method="post" class="row g-3">
+<form action="{% url 'dm:signup_vol' %}" method="POST" class="row g-3">
   {% csrf_token %}
   <div class="col-md-6 offset-md-3">
     {{ form.as_p }}
