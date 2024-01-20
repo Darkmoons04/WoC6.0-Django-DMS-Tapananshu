@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block title %} Sign up! {% endblock %}
+
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+  <h1>New User??? Create an account for free!!</h1>
+  <h2>Sign up as:</h2>
+  <a href="{% url 'dm:signup_vol' %}">Volunteer</a>
+  <br>
+  <a href="{% url 'dm:signup_org' %}">Organization</a>
+</div>
+
+{% endblock %}
