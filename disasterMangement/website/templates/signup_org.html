@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign up!! {% endblock %}
+
+{% block content %}
+<form action="{% url 'dm:signup_org' %}" method="post" class="row g-3">
+  {% csrf_token %}
+  <div class="col-md-6 offset-md-3">
+    {{ form.as_p }}
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </div>
+</form>
+{%endblock%}

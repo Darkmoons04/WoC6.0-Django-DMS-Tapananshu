@@ -1,7 +1,21 @@
-<body>
-    <h1>Welcome Back! Login to your account</h1>
-    <h2>Sign in as:</h2>
-    <a href="{% url 'dm:signin_vol' %}">Volunteer</a>
+{% extends 'base.html'%}
+{% block title %}Login Page{%endblock%}
+
+{% block content %}
+<div class="container">
+    <br/>
+    <h2 class="text-centre mb-4">Login Page</h2>
+</div>
+<form action="{% url 'dm:signin' %}" id="loginForm" method="POST">
+    {% csrf_token %}
+    <div class="col-md-6 offset-md-3">
+        {{ form.as_p }}
     <br>
-    <a href="{% url 'dm:signin_org' %}">Organization</a>
-</body>
+    <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+</form>
+{%endblock%}
+
+
+
+

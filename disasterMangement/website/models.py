@@ -18,11 +18,11 @@ class myUser(AbstractUser):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         if self.user_role == "1":
-            Volunteer.objects.get_or_create(user=self)
+            Volunteer.objects.get_or_create(role=self)
         elif self.user_role == "2":
-            Organization.objects.get_or_create(user=self)
+            Organization.objects.get_or_create(role=self)
         elif self.user_role == "3":
-            Admin.objects.get_or_create(user=self)
+            Admin.objects.get_or_create(role=self)
 
 
 class Admin(models.Model):
@@ -35,7 +35,7 @@ class Volunteer(models.Model):
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
     age = models.IntegerField()
-    nationallity = models.CharField(max_length=25)
+    nationality = models.CharField(max_length=25)
     email = models.EmailField()
 
 class Organization(models.Model):

@@ -23,14 +23,14 @@ class Signup_Volunteer(UserCreationForm):
 
     class Meta:
         model = myUser
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'password1', 'password2']
 
         widgets = {
             'username': forms.TextInput(attrs={'class':'form-control'}),
             'first_name': forms.TextInput(attrs={'class':'form-control'}),
             'last_name': forms.TextInput(attrs={'class':'form-control'}),
             'email': forms.TextInput(attrs={'class':'form-control'}),
-            'age': forms.TextInput(attrs={'class':'form-control'}),
+            'age': forms.NumberInput(attrs={'class':'form-control'}),
             'nationality': forms.TextInput(attrs={'class':'form-control'}),
             'password1': forms.PasswordInput(attrs={'class':'form-control'}),
             'password2': forms.PasswordInput(attrs={'class':'form-control'}),
@@ -43,7 +43,7 @@ class Signup_Org(UserCreationForm):
 
     class Meta:
         model = myUser
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'password1', 'password2']
 
         widgets = {
             'username': forms.TextInput(attrs={'class':'form-control'}),
