@@ -28,15 +28,21 @@ def signin(request):
     form = Signin_Form()
     if request.method == "POST":
         form = Signin_Form(request.POST)
-        username = form.cleaned_data["username"]
-        password = form.cleaned_data["password"]
-        user = authenticate(request, username = username, password = password)
-        if user is not None:
-            login(request, user)
-            messages.info(request,"You have logged in successfully!!")
-            return redirect('dm:home')
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(request, username = username, password = password)
+            if user is not None:
+                login(request, user)
+                messages.info(request,"You have logged in successfully!!")
+                return redirect('dm:home')
+            else:
+                messages.info(request,"Invalid Credentials")
+                return redirect('dm:signin')
+        
         else:
-            messages.info(request,"Invalid Credentials")
+            messages.error(request, "Form invalid")
+            print(form.errors)
             return redirect('dm:signin')
         
     return render(request, 'signin.html', {
